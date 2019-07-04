@@ -1,0 +1,13 @@
+== File Upload API ==
+
+API URL:
+
+Description: List all created users with details
+* Request: `GET`
+* URL: `/v1/users.json`
+
+Description: Create new users through file import
+* Request: `POST`
+* URL: `/v1/users.json`
+* Params: File
+* Demo File URL: `https://docs.google.com/spreadsheets/d/1oOpknAgEw9Heq8w4y9dK-N0JhjGh0pRRckOzkXwy9FI/edit?usp=sharing`
