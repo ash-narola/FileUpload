@@ -5,13 +5,24 @@ class User < ApplicationRecord
 
   def self.import_by_file_type(file)
     @messages = []
+    case File.extname(file.original_filename)
+    when '.xls'
+      generate_user(file)
+    when '.xlsx'
+      generate_user(file)
+    else
+      error = 'File type not supported'
+    end
+    @messages
+  end
+
+  def generate_user(file)
     spreadsheet = Roo::Spreadsheet.open(file.path)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = spreadsheet.row(i)
       create_users_from_import(row)
     end
-    @messages
   end
 
   def self.create_users_from_import(row)
