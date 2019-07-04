@@ -19,6 +19,7 @@ class User < ApplicationRecord
     u.first_name = row[0]
     u.last_name = row[1]
     u.age = row[2]
+    u.sex = row[3]
 
     @messages << u.errors.full_messages unless u.save
     @messages
