@@ -16,7 +16,7 @@ class User < ApplicationRecord
     @messages
   end
 
-  def generate_user(file)
+  def self.generate_user(file)
     spreadsheet = Roo::Spreadsheet.open(file.path)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
