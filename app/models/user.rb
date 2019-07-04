@@ -11,7 +11,7 @@ class User < ApplicationRecord
     when '.xlsx'
       generate_user(file)
     else
-      error = 'File type not supported'
+      @messages << 'File type not supported'
     end
     @messages
   end
